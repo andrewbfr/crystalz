@@ -1,0 +1,8 @@
+body#the-body {
+	background-image: url('../images/wave-bg.JPG');
+}
+
+span.class {
+	float: left;
+}
+
