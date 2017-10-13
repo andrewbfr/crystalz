@@ -35,7 +35,7 @@
             				There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
             				<br>
             				<br>
-            				You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
+            				You win the game by matching your total score to a target number; you lose the game if your total score goes above the random number.
             				<br>
             				<br>
             				The value of each crystal is hidden from you until you click on it.
@@ -49,12 +49,79 @@
 		</div>
 
 <!--Trying to Obtain This Number-->
+	<div class="row">
+		<div class="col-md-5 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+            			<h2 class="panel-title text-center">This is What You're Looking For</h2>
+            	</div>
+            		<div class="panel-body text-center">
+            			<h2 id="target">Target Number</h2>
+            		</div>
+
+			</div>
+		</div>
+
+	<!--This Contains Wins and Losses-->
+
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+            			<h2 class="panel-title text-center">Stats</h2>
+            	</div>
+            		<div class="panel-body text-left">
+            			Wins <span id="wins"></span>
+            		</div>
+            		<div class="panel-body text-left">
+            			Losses <span id="losses"></span>
+            		</div>
+
+			</div>
+		</div>
+	</div>
 
 
-<!--This Contains Wind and Losses-->
 
 
-<!--Images of clickable "crystals"-->
+
+
+<!--Images of clickable "crystals"-->	
+	<div class="row">
+  		<div class="col-xs-6 col-md-2">
+    		<a href="#" class="thumbnail">
+      			<img src="..." alt="...">
+   			 </a>
+  		</div>
+  dot dot dot
+	</div>
+
+  		<div class="col-xs-6 col-md-2">
+    		<a href="#" class="thumbnail">
+      			<img src="..." alt="...">
+   			 </a>
+  		</div>
+  dot dot dot
+	</div>
+
+  		<div class="col-xs-6 col-md-2">
+    		<a href="#" class="thumbnail">
+      			<img src="..." alt="...">
+   			 </a>
+  		</div>
+  dot dot dot
+	</div>
+
+  		<div class="col-xs-6 col-md-2">
+    		<a href="#" class="thumbnail">
+      			<img src="..." alt="...">
+   			 </a>
+  		</div>
+  dot dot dot
+	</div>
+
+	
+
+	
 
 
 <!--Your dynamically created "Total Score"-->
@@ -75,7 +142,7 @@
 
 
 	</div>
-	<footer class="container-fluid footer text-center"><small>Copyright Andrew Ferrer 2017</small></footer>
+	<footer class="container footer text-center" id="footer"><small>Copyright Andrew Ferrer 2017</small></footer>
 	
 	<script
   src="https://code.jquery.com/jquery-3.2.1.js"

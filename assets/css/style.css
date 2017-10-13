@@ -1,16 +1,18 @@
-body#the-body {
+#the-body {
 	background-image: url('../images/wave-bg.JPG');
 }
 
-span.class {
+/*span.class {
 	float: left;
+}*/
+
+
+
+
+
+#footer {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid white;
 }
 
-
-
-/* make sure this is working once you begin to fill
-the page up
-footer.footer {
-	border-top: 2px black;
-}
-*/
