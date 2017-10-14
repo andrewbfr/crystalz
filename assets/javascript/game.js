@@ -5,8 +5,13 @@
 // individual variables
 // consider which variables need to actually contain functions
 //
-var winsCount;
-var lossesCount;
+$( document ).ready(function() {
+
+	resetNumbers();
+});
+
+var winsCount = 0;
+var lossesCount = 0;
 var currentTotal = 0;
 var targetNumber;
 var bismuth;
@@ -14,21 +19,12 @@ var pastel;
 var ferro;
 var green;
 
-var bismuth = bismuth();
-var pastel = pastel();
-var ferro = ferro();
-var green = green();
+var bismuth;
+var pastel;
+var ferro;
+var green;
 
 
-
-
-
-
-var targetNumber = generateTarget();
-
-
-
-console.log(targetNumber);
 
 
 //FUNCTIONS
@@ -45,60 +41,87 @@ console.log(targetNumber);
 
 //Math.floor(Math.random() * (max - min + 1)) + min;
 //Math.floor(Math.random() * (max - min)) + min;
+
+function resetNumbers(){
+	bismuth = crystalValues();
+	ferro = crystalValues();
+	green = crystalValues();
+	pastel = crystalValues();
+	generateTarget();
+
+
+};
+
 function generateTarget(){
-		var number = Math.floor((Math.random() * (120 - 19)) + 19);
-		$("#target").text(number);
-		console.log(number);
-		return number;
-	};
+		targetNumber = Math.floor((Math.random() * (120 - 19)) + 19);
+		$("#target").text(targetNumber);
+	}
 
 //consider finding a way to make this a for-loop, 
 //executed at the whatever trigger, 
 //also maybe it should be part of an object
-function bismuth(){
-		var number = Math.floor((Math.random() * 12) + 1);
-		$("#target").text(number);
-		console.log(number);
-		return number;
-	};
 
-console.log(bismuth);
+function crystalValues(){
+	return Math.floor((Math.random() * 12) + 1); 
+}
 
-function pastel(){
-		var number = Math.floor((Math.random() * 12) + 1);
-		$("#target").text(number);
-		console.log(number);
-		return number;
-	};
 
-console.log(pastel);
+//this is how it all started. it became what is presently above.
+// function bismuth(){
+// 		var number = Math.floor((Math.random() * 12) + 1);
+// 		$("#target").text(number);
+// 		console.log(number);
+// 		return number;
+// 	};
 
-function ferro(){
-		var number = Math.floor((Math.random() * 12) + 1);
-		$("#target").text(number);
-		console.log(number);
-		return number;
-	};
+// console.log(bismuth);
 
-console.log(ferro);
+// function pastel(){
+// 		var number = Math.floor((Math.random() * 12) + 1);
+// 		$("#target").text(number);
+// 		console.log(number);
+// 		return number;
+// 	};
 
-function green(){
-		var number = Math.floor((Math.random() * 12) + 1);
-		$("#target").text(number);
-		console.log(number);
-		return number;
-	};
+// console.log(pastel);
 
-console.log(green);
+// function ferro(){
+// 		var number = Math.floor((Math.random() * 12) + 1);
+// 		$("#target").text(number);
+// 		console.log(number);
+// 		return number;
+// 	};
+
+// console.log(ferro);
+
+// function green(){
+// 		var number = Math.floor((Math.random() * 12) + 1);
+// 		$("#target").text(number);
+// 		console.log(number);
+// 		return number;
+// 	};
+
+// console.log(green);
 
 function winCheck(){
 	if (currentTotal === targetNumber){
 		//reset: tally win++
+		winsCount++;
+		currentTotal = 0;
+		$("#wins").text(winsCount);
+		resetNumbers();
+
+
 	}
 	else if (currentTotal > targetNumber){
 		//reset: tally loss++
+		lossesCount++;
+		currentTotal = 0;
+		$("#losses").text(lossesCount);
+		resetNumbers();
+
 	}
-}
+};
 
 
 
@@ -108,22 +131,27 @@ function winCheck(){
 
 $("#bismuth").on("click", function (e){
 	clickAdd(bismuth);
-})
+});
 
 $("#pastel").on("click", function (e){
 	clickAdd(pastel);
-})
+});
 
 $("#ferro").on("click", function (e){
 	clickAdd(ferro);
-})
+});
 
 $("#green").on("click", function (e){
 	clickAdd(green);
-})
+});
+
+//tremendous insight to place clidkAdd's functionality inside
+//its own function, instead of having each .on/click function
+//perform the same thing, with millions of lines of code.
 
 function clickAdd(value){
-	currentTotal = currentTotal + value;
+	// this replaces "currentTotal = currentTotal = value;"
+	currentTotal += value;
 	$("#tabulate").text(currentTotal);
 	winCheck();
 }
