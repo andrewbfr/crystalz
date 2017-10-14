@@ -47,6 +47,8 @@ function resetNumbers(){
 	ferro = crystalValues();
 	green = crystalValues();
 	pastel = crystalValues();
+	currentTotal = 0;
+	$("#tabulate").text(currentTotal);
 	generateTarget();
 
 
@@ -107,8 +109,8 @@ function winCheck(){
 	if (currentTotal === targetNumber){
 		//reset: tally win++
 		winsCount++;
-		currentTotal = 0;
 		$("#wins").text(winsCount);
+		$("#winAlert").text("You Won!");
 		resetNumbers();
 
 
@@ -116,8 +118,8 @@ function winCheck(){
 	else if (currentTotal > targetNumber){
 		//reset: tally loss++
 		lossesCount++;
-		currentTotal = 0;
 		$("#losses").text(lossesCount);
+		$("#winAlert").text("You Lost!");
 		resetNumbers();
 
 	}
