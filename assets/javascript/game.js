@@ -40,8 +40,13 @@ console.log(targetNumber);
 // how to design a function to  keep goinggggg... lost train of thought
 // run functions to tabulate new target numbers, new crystal values, reset cumulative
 //and alter wins/losses++ with a single if/else.
+//is it possible to make a for-loop to generate all of these
+//variables and funcitons for me?
+
+//Math.floor(Math.random() * (max - min + 1)) + min;
+//Math.floor(Math.random() * (max - min)) + min;
 function generateTarget(){
-		var number = Math.floor((Math.random() * 120) + 19);
+		var number = Math.floor((Math.random() * (120 - 19)) + 19);
 		$("#target").text(number);
 		console.log(number);
 		return number;
