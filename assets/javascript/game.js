@@ -7,8 +7,8 @@
 //
 var winsCount;
 var lossesCount;
-var currentTotal;
-var targetNumber
+var currentTotal = 0;
+var targetNumber;
 var bismuth;
 var pastel;
 var ferro;
@@ -91,10 +91,43 @@ function green(){
 
 console.log(green);
 
+function winCheck(){
+	if (currentTotal === targetNumber){
+		//reset: tally win++
+	}
+	else if (currentTotal > targetNumber){
+		//reset: tally loss++
+	}
+}
+
+
 
 
 //MAIN PROCESSES
 //----------------------------------------------------
+
+$("#bismuth").on("click", function (e){
+	clickAdd(bismuth);
+})
+
+$("#pastel").on("click", function (e){
+	clickAdd(pastel);
+})
+
+$("#ferro").on("click", function (e){
+	clickAdd(ferro);
+})
+
+$("#green").on("click", function (e){
+	clickAdd(green);
+})
+
+function clickAdd(value){
+	currentTotal = currentTotal + value;
+	$("#tabulate").text(currentTotal);
+	winCheck();
+}
+
 
 
 
