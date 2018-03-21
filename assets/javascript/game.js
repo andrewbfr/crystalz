@@ -29,18 +29,17 @@ var green;
 
 //FUNCTIONS
 //-----------------------------------------------------
-// add clicked value to accrueing total
-// counter to tabulate 
-// individual functions, each stored as a variable, that performs
-// the function of adding a total to the accrueing total
-// how to design a function to  keep goinggggg... lost train of thought
-// run functions to tabulate new target numbers, new crystal values, reset cumulative
-//and alter wins/losses++ with a single if/else.
-//is it possible to make a for-loop to generate all of these
-//variables and funcitons for me?
 
-//Math.floor(Math.random() * (max - min + 1)) + min;
-//Math.floor(Math.random() * (max - min)) + min;
+//tremendous insight to place clidkAdd's functionality inside
+//its own function, instead of having each .on/click function
+//perform the same thing, with millions of lines of code.
+
+function clickAdd(value){
+	// this replaces "currentTotal = currentTotal = value;"
+	currentTotal += value;
+	$("#tabulate").text(currentTotal);
+	winCheck();
+}
 
 function resetNumbers(){
 	bismuth = crystalValues();
@@ -50,23 +49,16 @@ function resetNumbers(){
 	currentTotal = 0;
 	$("#tabulate").text(currentTotal);
 	generateTarget();
-
-
 };
 
 function generateTarget(){
 		targetNumber = Math.floor((Math.random() * (120 - 19)) + 19);
 		$("#target").text(targetNumber);
-	}
-
-//consider finding a way to make this a for-loop, 
-//executed at the whatever trigger, 
-//also maybe it should be part of an object
+}
 
 function crystalValues(){
 	return Math.floor((Math.random() * 12) + 1); 
 }
-
 
 //this is how it all started. it became what is presently above.
 // function bismuth(){
@@ -125,9 +117,6 @@ function winCheck(){
 	}
 };
 
-
-
-
 //MAIN PROCESSES
 //----------------------------------------------------
 
@@ -146,17 +135,6 @@ $("#ferro").on("click", function (e){
 $("#green").on("click", function (e){
 	clickAdd(green);
 });
-
-//tremendous insight to place clidkAdd's functionality inside
-//its own function, instead of having each .on/click function
-//perform the same thing, with millions of lines of code.
-
-function clickAdd(value){
-	// this replaces "currentTotal = currentTotal = value;"
-	currentTotal += value;
-	$("#tabulate").text(currentTotal);
-	winCheck();
-}
 
 
 
